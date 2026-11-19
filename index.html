@@ -1,0 +1,59 @@
+•	Ustaw wysokość nad cewką (h)  h=5 cm<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Laboratorium: Indukcja Elektromagnetyczna</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f2f5; color: #333; margin: 0; padding: 20px; }
+        h1 { text-align: center; color: #1a237e; }
+        .container { display: flex; flex-wrap: wrap; gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .panel { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .sim-box { flex: 1; min-width: 320px; display: flex; flex-direction: column; align-items: center; }
+        .data-box { flex: 2; min-width: 450px; display: flex; flex-direction: column; gap: 20px; }
+        canvas { border: 1px solid #ccc; border-radius: 6px; background: #fafafa; }
+        .controls { width: 100%; margin-top: 15px; display: flex; flex-direction: column; gap: 10px; }
+        label { display: flex; justify-content: space-between; font-weight: bold; }
+        button { padding: 10px 15px; font-size: 16px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        .btn-drop { background: #2e7d32; color: white; }
+        .btn-save { background: #1565c0; color: white; }
+        .btn-clear { background: #c62828; color: white; font-size: 13px; padding: 6px 10px; }
+        .readout { font-size: 20px; font-weight: bold; text-align: center; padding: 10px; background: #e8eaf6; border-radius: 6px; color: #1a237e; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+        th { background: #1a237e; color: white; }
+    </style>
+</head>
+<body>
+
+<h1>🧲 E-Laboratorium: Spadek magnesu przez zwojnicę</h1>
+
+<div class="container">
+    <div class="panel sim-box">
+        <canvas id="simCanvas" width="300" height="480"></canvas>
+        <div class="controls">
+            <label>Wysokość nad cewką (h): <span id="hVal">15 cm</span></label>
+            <input type="range" id="heightSlider" min="5" max="35" value="15" step="1">
+            
+            <label>Liczba zwojów (N): <span id="nVal">1100</span></label>
+            <input type="range" id="turnsSlider" min="100" max="4000" value="1100" step="100">
+
+            
+            <button class="btn-drop" onclick="dropMagnet()">▶ Upuść magnes</button>
+            
+        </div>
+    </div>
+
+    <div class="panel data-box">
+        <div>
+            <h3>📈 Oscyloskop: Napięcie w czasie U(t)</h3>
+            <canvas id="scopeCanvas" width="730" height="600"></canvas>
+        </div>
+
+        
+    </div>
+</div>
+<br>
+<center>&copy Wacław Libront * Bobowa 2026</center>
+<script src="app.js"></script>
+</body>
+</html>
